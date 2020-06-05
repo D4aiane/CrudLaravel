@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Lista de Usuários - Aprendendo Laravel</title>
+  <title>Cadastro de Usuários - Aprendendo Laravel</title>
   <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
   <style>
     *{
@@ -50,9 +49,11 @@
       border:1px solid #f44;
       border-radius:10px;
       box-shadow: 5px 5px 2px #f003;
-      width:80%;
+      width:500px;
+      min-height:200px;
       margin:100px auto 0;
     }
+
     h2{
       font-size:25px;
       padding:30px 0;
@@ -63,53 +64,50 @@
       border-top:1px solid white;
       text-transform: uppercase;
     }
-    table{
-      width:100%;
-    }
-    th, td{
-      vertical-align: middle;
-      text-align:left;
-    }
-    th{
-      padding:10px 10px;
-      background-color: #f443;
-    }
-    td{
-      padding:20px 10px;
-      font-size:22px;
-    }
 
-    td:nth-child(5), td:nth-child(6){
-      width:60px;
-      text-align:center;
-      padding:0;
-    }
+		#cadastro {
+		  padding: 18px 6% 60px 6%;
+		  background: #fffe;
+      border-radius:0 0 10px 10px;
+		}
 
-    #editar, #deletar{
-      display:block;
-      width:40px;
-      height:40px;
-    }
-    #editar{
-      background:url('https://cdn.iconscout.com/icon/free/png-256/edit-1215-1163030.png') center no-repeat;
-      background-size:contain;
-    }
-    #deletar{
-      border:none;
-      cursor: pointer;
-      background:url('https://i.ya-webdesign.com/images/edit-delete-icon-png.png') center no-repeat;
-      background-size:contain;
-    }
+    main p{ margin-bottom:15px; }
 
-    th:first-child, td:first-child{ width:1px; }
-    tr:nth-child(2n){ background-color:#fff5; }
-    tr:nth-child(2n+1){ background-color:#f442; }
-    td:nth-child(2){ width:40%; }
-    tr:last-child td {
-        padding:5px;
-        background-color:#f44;
-        border-radius:0 0 10px 10px;
-    }
+		label{
+		  color: #f44;
+		  position: relative;
+		}
+
+		input {
+		  outline: none;
+		  width: 95%;
+		  margin-top: 5px;
+		  padding: 10px;
+		  border: 1px solid #f44;
+		  font-size: 20px;
+		  border-radius: 5px;
+		  box-shadow: 0px 1px 4px 0px #f007 inset;
+      color:#f44;
+		}
+
+    input[type="submit"]{
+		  width: 100%!important;
+		  cursor: pointer;
+		  background: #f44;
+		  padding: 20px 5px;
+		  color: #fff;
+		  font-size: 20px;
+		  border: 1px solid #fff;
+		  margin-bottom: 10px;
+		  text-shadow: 0 1px 1px #333;
+		  border-radius: 5px;
+		  transition: all 0.2s linear;
+		}
+		input[type="submit"]:hover{
+		  background: #f009;
+		}
+    input::placeholder{ color:#f447; }
+
     footer{
       text-align:center;
       padding:10px;
@@ -130,31 +128,24 @@
     </h1>
   </header>
   <main>
-     <table cellspacing="0">
-        <h2>Lista de Usuários</h2>
-        <tr>
-           <th>ID</th>
-           <th>Nome</th>
-           <th>E-mail</th>
-           <th>Desde</th>
-           <th colspan=2>Operação</th>
-        </tr>
-            @foreach ($users as $user)
-                 <tr>
-                    <td><p>{{ $user->id }} </p></td>
-                    <td><p>{{ $user->name }} </p></td>
-                    <td><p>{{ $user->email }} </p></td>
-                    <td></td>
-                      <td><a href='#' id='editar' title='Editar'></a></td>
-                    <td>
-                        <form action="" method="post">
-                             <input id="deletar" type="submit" value="" title='Deletar'>
-                        </form>
-                     </td>
-                 </tr>
-             @endforeach
-        <tr><td colspan='6'></td></tr>
-    </table>
+	    <h2>Cadastrar usuário</h2>
+	    <form action='' method="post" id="cadastro">
+
+
+	        <p>
+		        <label for="name">Nome do usuário</label>
+		        <input type="text" name="name" placeholder="exemplo: Fulano de Tal">
+	        </p>
+	        <p>
+		        <label for="email">Email do usuário</label>
+		        <input type="email" name="email" placeholder="exemplo:email@gmail.com">
+	        </p>
+	        <p>
+		        <label for="password">Senha do usuário</label>
+		        <input type="password" name="password" placeholder="exemplo: 12345">
+	        </p>
+            <input type="submit" value="Cadastrar usuário">
+	    </form>
   </main>
   <footer>
     <p>Aprendendo Laravel - by Edson Luiz Parisotto - <a href='http://www.variavel.com.br/laravel'>www.variavel.com.br/laravel</a></p>
