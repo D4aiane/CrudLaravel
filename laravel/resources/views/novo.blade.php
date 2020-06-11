@@ -129,8 +129,8 @@
   </header>
   <main>
 	    <h2>Cadastrar usuário</h2>
-	    <form action='' method="post" id="cadastro">
-
+	    <form action='storage' method="post" id="cadastro">
+            @csrf
 
 	        <p>
 		        <label for="name">Nome do usuário</label>
